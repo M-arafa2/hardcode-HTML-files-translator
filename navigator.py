@@ -25,11 +25,18 @@ def partial(dir_list):
         
         
 partial(dir_list)
-#if __name__ == '__main__':
-    
 
+# uncomment that if you want to use multiprocessing pool
+#and comment out partial(dir_list)
+#it might cause errors because googletranslation server
+#has limited requests per second
+#if exceded it will block and stop responding
+
+#if __name__ == '__main__':
+    #files_remaining =len(dir_list)
     #print(str(len(dir_list)) + " HTML Files detected") 
     #with Pool(10) as p:
-        #p.imap(translate_file, dir_list)
+        
         #for file in p.imap_unordered(translate_file, dir_list):
-            #print(str(len(dir_list)-1) +" Files Remaining")
+            #files_remaining -=1
+            #print(str(files_remaining) +" Files Remaining")
