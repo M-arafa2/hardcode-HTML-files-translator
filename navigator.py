@@ -6,10 +6,10 @@ from multiprocessing import Pool
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 print(ROOT_DIR)
 dir_list=[]
-
+#find all html files in root directory and subdirectories
 for file in glob.iglob(ROOT_DIR+'/**/*.html',recursive=True):
     dir_list.append(file)
-
+# pass file by file to translate function in translator.py file
 def partial(dir_list):
     Files_remaining = len(dir_list)
     print(str(len(dir_list))+" Files Detected")

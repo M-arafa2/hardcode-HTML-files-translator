@@ -18,12 +18,18 @@ def translate_file(file):
   #source language is auto detected
   lang = "hi"
   html_file = open(file,encoding="utf8").read()
+  #used lxml parser because its faster
   soup = BeautifulSoup(html_file,"lxml")
+  #those are all tags that contain text
+  # i excluded "li" tag because it change the html attributes
+  #which remove classes attributes etc
   tags = soup.find_all(["p", "a", "h1", "h2", "h3", "h4", "h5", "h6", "td", "strong", "span", "title", "em"])
   
   for tag in tags:
     try:
       translate(tag.contents, tag, lang)
+    # attribute error happen when it pass empty text
+    # it doesnt affect the process thatswhy i passed it
     except AttributeError as a:
       pass
     except Exception as e :
