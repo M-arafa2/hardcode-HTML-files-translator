@@ -1,5 +1,4 @@
 beautifulsoup4==4.11.2
-certifi==2022.12.7
 charset-normalizer==3.1.0
 deep-translator==1.10.1
 idna==3.4
